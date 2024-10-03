@@ -26,11 +26,12 @@ This project is organized into the following structure:
 │ ├── ensemble.py
 │ └── utils.py
 ├── notebooks/
-│ └── [Optional Jupyter notebooks for exploration and analysis] ├── frontend/
-│ ├── pages/
-│ ├── components/
-│ ├── styles/
-│ └── public/
+│ └── [Optional Jupyter notebooks for exploration and analysis] 
+|  ├── frontend/
+│     ├── pages/
+│     ├── components/
+│     ├── styles/
+│     └── public/
 ├── cloud/
 │ ├── Dockerfile
 │ └── gcp_deploy.sh
