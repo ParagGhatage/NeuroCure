@@ -9,7 +9,7 @@ This project is organized into the following structure:
 ├── data/
 | │── README.md
 │ ├── sample/
-│ │ ├── sample1.jpg 
+│    ├── sample1.jpg 
 |    ├── sample2.jpg  
 |    ├── sample3.jpg   
 |    └── sample4.jpg 
@@ -17,7 +17,7 @@ This project is organized into the following structure:
 ├── models/
 │ ├── load_resnet50.py
 │ ├── load_custom_model.py  
-|  ├── load_meta_model.py
+| ├── load_meta_model.py
 │ └── load_segmentation.py
 ├── src/
 │ ├── config.py
