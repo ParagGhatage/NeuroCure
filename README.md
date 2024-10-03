@@ -27,11 +27,11 @@ This project is organized into the following structure:
 │ └── utils.py
 ├── notebooks/
 │ └── [Optional Jupyter notebooks for exploration and analysis] 
-|  ├── frontend/
-│     ├── pages/
-│     ├── components/
-│     ├── styles/
-│     └── public/
+├── frontend/
+│ ├── pages/
+│ ├── components/
+│ ├── styles/
+│ └── public/
 ├── cloud/
 │ ├── Dockerfile
 │ └── gcp_deploy.sh
