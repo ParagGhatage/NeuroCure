@@ -1,81 +1,58 @@
-import os
 import numpy as np
 from skimage.io import imread
 from skimage.transform import resize
 
-def preprocess_segmentation(image_path):
+def preprocess_segmentation(image):
     """
-    Preprocess images for segmentation, including normalization.
+    Preprocess a single image for segmentation, including normalization.
 
     Args:
-        image_path (str): The path to the directory containing images.
+        image (np.ndarray): The input image.
 
     Returns:
-        np.ndarray: Preprocessed images ready for segmentation with shape (None, 256, 256, 3).
+        np.ndarray: Preprocessed image ready for segmentation with shape (1, 256, 256, 3).
     """
-    images = []
+    # Resize image
+    img = resize(image, (256, 256), mode='constant', preserve_range=True)
 
-    # Load and preprocess images for segmentation
-    for img_file in os.listdir(image_path):
-        img = imread(os.path.join(image_path, img_file))
-        img = resize(img, (256, 256), mode='constant', preserve_range=True)
-
-        # If the image is grayscale, repeat the channel
-        if img.ndim == 2:  # Check if the image is grayscale
-            img = np.stack((img,) * 3, axis=-1)  # Convert grayscale to RGB
-        
-        images.append(img)
-
-    # Convert list to numpy array
-    images = np.array(images)
-
+    # If the image is grayscale, repeat the channel
+    if img.ndim == 2:  # Check if the image is grayscale
+        img = np.stack((img,) * 3, axis=-1)  # Convert grayscale to RGB
+    
     # Normalize pixel values to [0, 1]
-    images = images / 255.0
+    img = img / 255.0
 
-    # Add a batch dimension if there's only one image
-    if images.ndim == 3:  # This means there is only one image
-        images = np.expand_dims(images, axis=0)  # Now shape is (1, 256, 256, 3)
+    # Add a batch dimension
+    img = np.expand_dims(img, axis=0)  # Now shape is (1, 256, 256, 3)
 
-    # Ensure the output shape is (batch_size, height, width, channels)
-    print(f'Segmentation images preprocessed. Shape: {images.shape}')
-    return images
+    print(f'Segmentation image preprocessed. Shape: {img.shape}')
+    return img
 
-def preprocess_classification(image_path):
+def preprocess_classification(image):
     """
-    Preprocess images for classification.
+    Preprocess a single image for classification.
 
     Args:
-        image_path (str): The path to the directory containing images.
+        image (np.ndarray): The input image.
 
     Returns:
-        np.ndarray: Preprocessed images ready for classification with shape (None, 224, 224, 3).
+        np.ndarray: Preprocessed image ready for classification with shape (1, 224, 224, 3).
     """
-    images = []
+    # Resize image
+    img = resize(image, (224, 224), mode='constant', preserve_range=True)
 
-    # Load and preprocess images for classification
-    for img_file in os.listdir(image_path):
-        img = imread(os.path.join(image_path, img_file))
-        img = resize(img, (224, 224), mode='constant', preserve_range=True)
-
-        # If the image is grayscale, repeat the channel
-        if img.ndim == 2:  # Check if the image is grayscale
-            img = np.stack((img,) * 3, axis=-1)  # Convert grayscale to RGB
-        
-        images.append(img)
-
-    # Convert list to numpy array
-    images = np.array(images)
-
+    # If the image is grayscale, repeat the channel
+    if img.ndim == 2:  # Check if the image is grayscale
+        img = np.stack((img,) * 3, axis=-1)  # Convert grayscale to RGB
+    
     # Normalize pixel values to [0, 1]
-    images = images / 255.0
+    img = img / 255.0
 
-    # Add a batch dimension if there's only one image
-    if images.ndim == 3:  # This means there is only one image
-        images = np.expand_dims(images, axis=0)  # Now shape is (1, 224, 224, 3)
+    # Add a batch dimension
+    img = np.expand_dims(img, axis=0)  # Now shape is (1, 224, 224, 3)
 
-    # Ensure the output shape is (batch_size, height, width, channels)
-    print(f'Classification images preprocessed. Shape: {images.shape}')
-    return images
+    print(f'Classification image preprocessed. Shape: {img.shape}')
+    return img
 
 def process_predictions(resnet_preds, custom_preds):
     """
@@ -98,21 +75,19 @@ def process_predictions(resnet_preds, custom_preds):
     
     return combined_preds
 
-# Example usage:
+# Example usage for an API endpoint
 if __name__ == "__main__":
-    # Path to the images
-    images_path_seg = 'path/to/segmentation/images'
-    images_path_class = 'path/to/classification/images'
+    # Sample image array for testing (Replace this with an actual image read from API)
+    sample_image_seg = np.random.rand(300, 300, 3)  # Random image for segmentation
+    sample_image_class = np.random.rand(300, 300, 3)  # Random image for classification
     
     # Preprocess images for segmentation
-    segmentation_images = preprocess_segmentation(images_path_seg)
-    print(f'Final shape of preprocessed segmentation images: {segmentation_images.shape}')
+    preprocessed_seg_image = preprocess_segmentation(sample_image_seg)
     
     # Preprocess images for classification
-    classification_images = preprocess_classification(images_path_class)
-    print(f'Final shape of preprocessed classification images: {classification_images.shape}')
+    preprocessed_class_image = preprocess_classification(sample_image_class)
     
-    # Example predictions (for demonstration)
+     # Example predictions (for demonstration)
     resnet_preds = np.random.rand(10, 8)  # Simulate predictions from ResNet
     custom_preds = np.random.rand(10, 8)  # Simulate predictions from custom model
     
