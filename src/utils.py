@@ -1,6 +1,9 @@
-from tensorflow.keras.models import load_model  
+
 import tensorflow as tf
-def load_model(model_path,custom_loss=False):
+from tensorflow.keras.models import load_model  # Import the function directly
+import os
+
+def load_local_model(model_path,custom_loss=False):
     """
     Load a model from the local directory and return the model object.
 
@@ -16,6 +19,8 @@ def load_model(model_path,custom_loss=False):
     """
     # Create the full local path for the model
     local_model_path = model_path
+    print(f'Loading model from: {local_model_path}')  # Debug print
+    
     
     def dice_loss(y_true, y_pred, smooth=1e-6, weight_bg=0.2, weight_fg=0.8):
         y_true_f = tf.keras.backend.flatten(y_true)

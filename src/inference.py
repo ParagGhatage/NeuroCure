@@ -62,10 +62,17 @@ def inference_segmentation_with_overlay(image, model_path):
     print(f'Segmentation inference completed. Predicted mask shape: {predicted_mask.shape}')
 
     # Overlay the mask on the original image
-    overlayed_image_bytes = overlay_mask_on_image(image, predicted_mask)
+    overlayed_image = overlay_mask_on_image(image, predicted_mask)
 
-    return overlayed_image_bytes
+    # Convert the overlayed image to JPEG format
+    pil_image = Image.fromarray((overlayed_image * 255).astype(np.uint8))  # Scale back to [0, 255]
+    
+    # Save the image to a BytesIO object
+    img_byte_arr = BytesIO()
+    pil_image.save(img_byte_arr, format='JPEG')
+    img_byte_arr.seek(0)  # Move to the beginning of the BytesIO buffer
 
+    return img_byte_arr
 
 def inference_classification(image, model_paths):
     """

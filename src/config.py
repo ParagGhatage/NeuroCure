@@ -11,7 +11,7 @@ LOCAL_MODEL_DIR = os.path.join('models', 'models')  # Directory to store models 
 RESNET50_MODEL_NAME = 'ResNet50V2.keras'
 CUSTOM_MODEL_NAME = 'new_custom_model.keras'
 META_MODEL_NAME = 'meta_model.keras'
-SEGMENTATION_MODEL_NAME = 'seg_model2.keras'
+SEGMENTATION_MODEL_NAME = 'seg_model2.h5'
 
 # Full local paths to the models
 RESNET50_MODEL_PATH = os.path.join(LOCAL_MODEL_DIR, RESNET50_MODEL_NAME)
