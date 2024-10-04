@@ -26,7 +26,13 @@ This project is organized into the following structure:
 │ ├── ensemble.py
 │ └── utils.py
 ├── notebooks/
-│ └── [Optional Jupyter notebooks for exploration and analysis] 
+│ ├── classification_resnet50.ipynb      # ResNet50 classification model training
+│ ├── classification_custom_model.ipynb  # Custom classification model training
+│ ├── meta_model_training.ipynb          # Meta-model (ensemble) training
+│ ├── segmentation_model.ipynb           # Segmentation model training
+│ ├── model_architecture/                # Folder to store model architecture notebook
+│    └── model_architecture_overview.ipynb  # Model architecture overview
+| 
 ├── frontend/
 │ ├── pages/
 │ ├── components/
