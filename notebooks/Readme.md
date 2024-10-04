@@ -25,4 +25,4 @@ This folder contains the Jupyter notebooks used for training and evaluating the 
 In the `model_architecture/` folder, you'll find:
 - **`model_architecture_overview.ipynb`**: 
   - This notebook loads all four models (ResNet50, custom classification model, meta-model, and segmentation model).
-  - It uses the `.summary()` or `.describe()` methods to show each model's architecture for reference.
+  - It uses the `.summary()` method to show each model's architecture for reference.
