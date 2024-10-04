@@ -1,4 +1,3 @@
-import os
 from tensorflow.keras.models import load_model  
 import tensorflow as tf
 def load_model(model_path,custom_loss=False):
