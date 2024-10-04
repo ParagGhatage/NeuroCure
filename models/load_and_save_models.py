@@ -1,5 +1,6 @@
 import os
 from google.cloud import storage
+from src.config import *
 
 def download_model_from_gcs(bucket_name, model_file_name, local_model_path):
     """Download a model from GCS and save it locally in the specified directory."""
