@@ -1,0 +1,6 @@
+Pillow
+protobuf
+requests
+scikit-image
+tensorflow
+tensorflow-intel

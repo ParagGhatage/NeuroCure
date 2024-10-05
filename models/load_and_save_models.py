@@ -60,7 +60,7 @@ def load_and_save_model(model_path, local_model_dir='models/models'):
 if __name__ == "__main__":
     # Define paths for all your models (either GCS gs:// paths or public URLs)
     model_paths = [
-        'https://storage.googleapis.com/thunder_wolf_1245/DL_Models/ResNet50V2.keras',  # Public URL for ResNet50
+        'gs://thunder_wolf_1245/DL_Models/ResNet50V2.keras',  # GCS path for ResNet50 model
         'gs://thunder_wolf_1245/DL_Models/new_custom_model.keras',   # GCS path for custom model
         'gs://thunder_wolf_1245/DL_Models/meta_model.keras',     # GCS path for meta-model
         'gs://thunder_wolf_1245/DL_Models/seg_model2.keras'  # GCS path for segmentation model
