@@ -28,7 +28,7 @@ def overlay_mask_on_image(image, predicted_mask, alpha=0.5):
     
     # Create a red overlay with the same shape as the original image
     red_overlay = np.zeros_like(image)  # Create an empty array for the red overlay
-    red_overlay[binary_mask] = [255, 0, 0]  # Apply red color to the areas where the mask is True
+    red_overlay[binary_mask] = [255, 255, 0]  # Apply red color to the areas where the mask is True
     
     # Blend the original image and the red overlay
     overlay_image = np.where(binary_mask[..., None], red_overlay, image)  # Use the mask to overlay red on the original image
