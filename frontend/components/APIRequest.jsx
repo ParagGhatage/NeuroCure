@@ -37,29 +37,76 @@ const APIRequest = ({ image }) => {
   };
 
   return (
-    <div>
-      <button onClick={sendRequest} disabled={loading} className="bg-blue-500 text-white py-2 px-4 rounded">
-        {loading ? 'Processing...' : 'Send for Inference'}
-      </button>
+    <div className="mt-6 text-center">
+  <button
+    onClick={sendRequest}
+    disabled={loading}
+    className={`${
+      loading ? 'bg-gray-700  p-6 text-center border-2 border-black ' : 'bg-blue-300 text-white p-6 text-center border-black border-2 m-3 rounded-md'
+    } text-black py-2 px-6 bg-blue-300 rounded`}
+  >
+    {loading ? 'Processing...' : 'send for analysis'}
+  </button>
 
-      {/* Display final class if available */}
-      {response && response.final_class !== undefined && (
-        <p>Final Class: {response.final_class}</p>
-      )}
+  {/* Display final class if available */}
+  {response && response.final_class !== undefined && (
+    <p className="mt-4 text-3xl font-semibold text-black">
+      Tumor Type: {response.final_class}
+    </p>
+  )}
 
-      {/* Display the overlayed image if available */}
-      {response && response.segment_image && (
+  {/* Container for side-by-side boxes */}
+  <div className="flex flex-col md:flex-row mt-6 space-y-4 md:space-y-0 p-4 space-x-4">
+    {/* Original Image Box */}
+    <div className="bg-gray-50 p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
+      <h3 className="text-lg font-semibold text-gray-700 mb-2 ">Click image to upload</h3>
+      <div>
+
+     
+      {image ? (
         <img
-          src={`data:image/jpeg;base64,${response.segment_image}`} // Convert Base64 to display
-          alt="Overlayed"
-          className="mt-4"
-          style={{ maxWidth: '100%', height: 'auto' }} // Responsive image styling
+          src={URL.createObjectURL(image)}
+          alt="Original MRI"
+          className="w-full h-auto"
         />
+      ) : (
+        <div className="text-gray-400">
+          <img
+        src="/pexels-googledeepmind-17483868.jpg" // Update with your image path
+        alt="Background"
+        className="object-cover w-50 h-50 rounded-lg opacity-30"
+      />
+        </div>
       )}
-
-      {/* Display error message if available */}
-      {response && response.error && <p className="text-red-500">Error: {response.error}</p>}
+       </div>
     </div>
+
+    {/* Segmented Image Box */}
+    {response && response.segment_image ? (
+
+    <div className="bg-gray-50 p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
+      <h3 className="text-lg font-semibold text-gray-700 mb-2">Segmented Image</h3>
+      {response && response.segment_image ? (
+        <img
+          src={`data:image/jpeg;base64,${response.segment_image}`}
+          alt="Segmented MRI"
+          className="w-full h-auto"
+        />
+      ) : (
+        <div className="text-gray-400">No segmentation available</div>
+      )}
+    </div>
+    ):(null
+    )}
+  </div>
+
+  {/* Display error message if available */}
+  {response && response.error && (
+    <p className="mt-4 text-red-500 font-semibold">Error: {response.error}</p>
+  )}
+</div>
+
+
   );
 };
 
