@@ -42,7 +42,7 @@ const APIRequest = ({ image }) => {
     onClick={sendRequest}
     disabled={loading}
     className={`${
-      loading ? 'bg-gray-700  p-6 text-center border-2 border-black ' : 'bg-blue-300 text-white p-6 text-center border-black border-2 m-3 rounded-md'
+      loading ? 'bg-gray-700  p-6 text-center border-2 text-white border-black ' : 'bg-red-400 text-black p-6 text-center border-black border-2 m-3 rounded-md'
     } text-black py-2 px-6 bg-blue-300 rounded`}
   >
     {loading ? 'Processing...' : 'send for analysis'}
@@ -74,7 +74,7 @@ const APIRequest = ({ image }) => {
           <img
         src="/pexels-googledeepmind-17483868.jpg" // Update with your image path
         alt="Background"
-        className="object-cover w-50 h-50 rounded-lg opacity-30"
+        className="object-cover w-50 h-50 rounded-lg "
       />
         </div>
       )}

@@ -1,12 +1,11 @@
 
-import Navbar from '../../components/Navbar';
+// import Navbar from './components/Navbar';
 // import Footer from '../../components/Footer';
-import InferenceForm from '../../components/InferenceForm';
+import InferenceForm from './components/InferenceForm';
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* <Navbar /> */}
+    <div className="flex flex-col min-h-screen pt-20">
       <main className="flex-grow flex items-center justify-center bg-gray-100 p-8">
         <div className="bg-white shadow-lg rounded-lg p-8  w-full">
           
