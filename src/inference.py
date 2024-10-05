@@ -1,23 +1,30 @@
 import numpy as np
 from PIL import Image
 from io import BytesIO
-from src.utils import load_model as load_local_model
+from src.utils import load_local_model
 from src.preprocess import preprocess_segmentation,preprocess_classification
+import numpy as np
+from PIL import Image
+from skimage.transform import resize
+
 
 def overlay_mask_on_image(image, predicted_mask, alpha=0.5):
     """
     Overlay the predicted mask on the input image.
 
     Args:
-        image (np.ndarray): The original image.
-        predicted_mask (np.ndarray): The predicted mask.
+        image (np.ndarray): The original image with shape (H, W, C).
+        predicted_mask (np.ndarray): The predicted mask with shape (H', W', 1) or (H', W').
         alpha (float): The transparency level for the overlay.
 
     Returns:
         BytesIO: The overlayed image as a JPEG byte stream.
     """
+    # Resize predicted_mask to match the shape of the original image
+    resized_mask = resize(predicted_mask, image.shape[:2], order=0, preserve_range=True, anti_aliasing=False)
+
     # Ensure the mask is binary
-    binary_mask = np.squeeze(predicted_mask) > 0.5  # Thresholding if needed
+    binary_mask = np.squeeze(resized_mask) > 0.5  # Thresholding if needed
     
     # Create a red overlay with the same shape as the original image
     red_overlay = np.zeros_like(image)  # Create an empty array for the red overlay
@@ -45,7 +52,7 @@ def inference_segmentation_with_overlay(image, model_path):
         model_path (str): The local path to the trained segmentation model.
 
     Returns:
-        BytesIO: The final image with the overlayed predicted mask.
+        Image: The final image with the overlayed predicted mask.
     """
     # Load the segmentation model
     model = load_local_model(model_path, custom_loss=True)
@@ -54,25 +61,21 @@ def inference_segmentation_with_overlay(image, model_path):
     preprocessed_image = preprocess_segmentation(image)
 
     # Make predictions
-    prediction = model.predict(preprocessed_image)
+    prediction = model.predict(preprocessed_image)  # Ensure this returns the expected shape
 
     # Post-process the predictions (optional, e.g., thresholding)
     predicted_mask = (prediction[0] > 0.5).astype(np.uint8)  # Apply a threshold to convert to binary mask
 
     print(f'Segmentation inference completed. Predicted mask shape: {predicted_mask.shape}')
 
-    # Overlay the mask on the original image
+    # Overlay the mask on the original image and return the overlayed image
     overlayed_image = overlay_mask_on_image(image, predicted_mask)
 
-    # Convert the overlayed image to JPEG format
-    pil_image = Image.fromarray((overlayed_image * 255).astype(np.uint8))  # Scale back to [0, 255]
-    
-    # Save the image to a BytesIO object
-    img_byte_arr = BytesIO()
-    pil_image.save(img_byte_arr, format='JPEG')
-    img_byte_arr.seek(0)  # Move to the beginning of the BytesIO buffer
+    # Convert overlayed image from BytesIO back to PIL Image for further processing
+    overlayed_image_pil = Image.open(overlayed_image)  # Convert BytesIO back to PIL Image
 
-    return img_byte_arr
+    return overlayed_image_pil  # Return the PIL Image
+
 
 def inference_classification(image, model_paths):
     """

@@ -2,6 +2,7 @@ import numpy as np
 from skimage.io import imread
 from skimage.transform import resize
 
+
 def preprocess_segmentation(image):
     """
     Preprocess a single image for segmentation, including normalization.
@@ -12,13 +13,15 @@ def preprocess_segmentation(image):
     Returns:
         np.ndarray: Preprocessed image ready for segmentation with shape (1, 256, 256, 3).
     """
+    print(f'Original image shape: {image.shape}')  # Debugging line
+
     # Resize image
     img = resize(image, (256, 256), mode='constant', preserve_range=True)
 
     # If the image is grayscale, repeat the channel
     if img.ndim == 2:  # Check if the image is grayscale
         img = np.stack((img,) * 3, axis=-1)  # Convert grayscale to RGB
-    
+
     # Normalize pixel values to [0, 1]
     img = img / 255.0
 
@@ -28,6 +31,8 @@ def preprocess_segmentation(image):
     print(f'Segmentation image preprocessed. Shape: {img.shape}')
     return img
 
+
+    
 def preprocess_classification(image):
     """
     Preprocess a single image for classification.
