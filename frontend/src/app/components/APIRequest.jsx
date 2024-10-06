@@ -103,12 +103,12 @@ const NoTumorMarkdown = `
   };
 
   return (
-    <div className="mt-6 text-center">
+    <div className="sm:mt-6 text-center">
   <button
     onClick={sendRequest}
     disabled={loading}
     className={`${
-      loading ? 'bg-black px-8 rounded-xl w-24 h-24 text-center border-2 text-white border-black ' : 'bg-red-400 text-black p-2 text-center text-xl border-black border-2 m-3 rounded-md'
+      loading ? 'bg-black sm:px-8 rounded-xl sm:w-24 sm:h-24 text-center border-2 text-white border-black ' : 'bg-red-400 text-black sm:p-2 text-center sm:text-xl border-black border-2 sm:m-3 rounded-md'
     } `}
   >
     {loading ? (
@@ -123,16 +123,16 @@ const NoTumorMarkdown = `
   {/* Display final class if available */}
   {response && response.final_class !== undefined && (
     
-    <p className="mt-4 text-3xl font-semibold text-black">
-      Dignosis: {response.final_class}
+    <p className="sm:mt-4 sm:text-3xl font-semibold text-black">
+      Diagnosis: {response.final_class}
     </p>
   )}
 
   {/* Container for side-by-side boxes */}
-  <div className="flex flex-col md:flex-row mt-6 space-y-4 md:space-y-0 p-4 space-x-4">
+  <div className="flex flex-col md:flex-row sm:mt-6 sm:space-y-4 md:space-y-0 sm:p-4 sm:space-x-4">
     {/* Original Image Box */}
-    <div className="bg-gray-50 p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
-      <h3 className="text-lg font-semibold text-gray-700 mb-2 ">Click image to upload</h3>
+    <div className="bg-gray-50 sm:p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
+      <h3 className="sm:text-lg font-semibold text-gray-700 sm:mb-2 ">Click image to upload</h3>
       <div>
 
      
@@ -140,14 +140,14 @@ const NoTumorMarkdown = `
         <img
           src={URL.createObjectURL(image)}
           alt="Original MRI"
-          className="w-full h-auto"
+          className="w-full sm:h-auto"
         />
       ) : (
         <div className="text-gray-400">
           <img
         src="/pexels-googledeepmind-17483868.jpg" // Update with your image path
         alt="Background"
-        className="object-cover w-50 h-50 rounded-lg "
+        className="sm:object-cover sm:w-50 sm:h-50 rounded-lg "
       />
         </div>
       )}
@@ -157,13 +157,13 @@ const NoTumorMarkdown = `
     {/* Segmented Image Box */}
     {response && response.segment_image ? (
 
-    <div className="bg-gray-50 p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
-      <h3 className="text-lg font-semibold text-gray-700 mb-2">Segmented Image</h3>
+    <div className="bg-gray-50 sm:p-4 border border-gray-200 rounded-lg flex flex-col items-center w-full md:w-1/2">
+      <h3 className="sm:text-lg font-semibold text-gray-700 sm:mb-2">Segmented Image</h3>
       {response && response.segment_image ? (
         <img
           src={`data:image/jpeg;base64,${response.segment_image}`}
           alt="Segmented MRI"
-          className="w-full h-auto"
+          className="w-full sm:h-auto"
         />
       ) : (
         <div className="text-gray-400">No segmentation available</div>
@@ -175,7 +175,7 @@ const NoTumorMarkdown = `
 
   {/* Display error message if available */}
   {response && response.error && (
-    <p className="mt-4 text-red-500 font-semibold">Error: {response.error}</p>
+    <p className="sm:mt-4 text-red-500 font-semibold">Error: {response.error}</p>
   )}
   {
     (response && response.final_class)?(

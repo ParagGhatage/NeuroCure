@@ -4,7 +4,6 @@ import APIRequest from './APIRequest';
 
 const ImageUploader = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-   
 
   // Sample images (update paths accordingly)
   const sampleImages = [
@@ -22,9 +21,6 @@ const ImageUploader = () => {
     "/gg (340).jpg",
     "/p (374).jpg",
     "/image(200).jpg",
-
-
-      // Make sure this image path is correct
   ];
 
   const handleImageChange = (e) => {
@@ -43,21 +39,22 @@ const ImageUploader = () => {
     } catch (error) {
       console.error('Error fetching image:', error);
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 w-full relative">
-        <div className="absolute inset-0"></div>
+      <div className="bg-white shadow-lg rounded-lg sm:p-6 border border-gray-200 w-full relative">
+        <div className="sm:absolute inset-0"></div>
 
-        <div className="relative z-10">
+        <div className="sm:relative">
           <div className="text-black text-center">
             <div>Try it out!</div>
-            <div className="flex justify-center p-3">
-              {sampleImages.map((image, index) => (
+            <div className="sm:flex md:flex justify-center sm:p-3">
+              {/* Render first four images for small screens and all images for larger screens */}
+              {(window.innerWidth < 640 ? sampleImages.slice(0, 4) : sampleImages).map((image, index) => (
                 <div
                   key={index}
-                  className="border border-gray-300 rounded-full overflow-hidden shadow-md w-12 h-12 flex items-center justify-center bg-gray-50 cursor-pointer mr-3"
+                  className="border border-gray-300 rounded-full overflow-hidden shadow-md sm:w-12 sm:h-12 sm:flex items-center justify-center bg-gray-50 cursor-pointer sm:mr-3"
                   onClick={() => handleImageClick(image)}
                 >
                   <img
@@ -71,8 +68,8 @@ const ImageUploader = () => {
           </div>
 
           {/* Hidden File Input */}
-          <label className="block mb-4 cursor-pointer">
-            <span className="text-gray-800 text-lg font-semibold mb-2">
+          <label className="sm:block sm:mb-4 cursor-pointer">
+            <span className="text-gray-800 sm:text-lg font-semibold sm:mb-2">
               <input
                 type="file"
                 accept="image/*"
@@ -80,13 +77,11 @@ const ImageUploader = () => {
                 className="hidden"
                 id="image-upload" // This ID links the label to the input
               />
-              <div className="bg-white shadow-lg rounded-lg p-4 border border-gray-200">
+              <div className="bg-white shadow-lg rounded-lg sm:p-4 border border-gray-200">
                 <APIRequest image={selectedImage} />
               </div>
             </span>
           </label>
-            
-          
         </div>
       </div>
     </div>
