@@ -1,14 +1,14 @@
 {
     "version": 2,
     "functions": {
-        "pages/app.py": {
+        "pages/api/app.py": {
             "runtime": "python@3.12.5" 
         }
     },
     "routes": [
         {
-            "src": "/pages/(.*)",
-            "dest": "/pages/app.py"
+            "src": "/pages/api/(.*)",
+            "dest": "/pages/api/app.py"
         }
     ]
 }
