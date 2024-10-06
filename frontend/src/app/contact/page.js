@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image";
 import React from "react";
-import { Label } from "@/app/components/ui/label";
-import { Input } from "@/app/components/ui/input";
-import { cn } from "@/app/lib/utils";
+import { Label } from "../../app/components/ui/label";
+import { Input } from "../../app/components/ui/input";
+import { cn } from "../../app/lib/utils";
 import {
   IconBrandGithub,
   IconBrandGoogle,

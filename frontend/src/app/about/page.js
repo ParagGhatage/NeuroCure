@@ -8,7 +8,7 @@ const About = () => {
       <section className="mb-6">
         <h2 className="text-2xl font-semibold text-blue-500">🌟 Welcome to NeuroCure</h2>
         <p className="mt-2 text-lg leading-relaxed">
-          At NeuroCure, we're on a mission to transform the way brain tumors are detected and classified using the power of advanced machine learning! Our platform is designed to empower patients and healthcare professionals with rapid, accurate analyses to ensure timely interventions.
+          At NeuroCure, we&apos;re on a mission to transform the way brain tumors are detected and classified using the power of advanced machine learning! Our platform is designed to empower patients and healthcare professionals with rapid, accurate analyses to ensure timely interventions.
         </p>
       </section>
 
@@ -22,7 +22,7 @@ const About = () => {
       <section className="mb-6">
         <h2 className="text-2xl font-semibold text-blue-500">🔮 Our Vision</h2>
         <p className="mt-2 text-lg leading-relaxed">
-          Imagine a future where AI-driven solutions seamlessly integrate into healthcare systems, providing critical insights and support to medical professionals. At NeuroCure, we're dedicated to making this vision a reality, helping to combat cancer and provide patients with the care they need and deserve.
+          Imagine a future where AI-driven solutions seamlessly integrate into healthcare systems, providing critical insights and support to medical professionals. At NeuroCure, we&apos;re dedicated to making this vision a reality, helping to combat cancer and provide patients with the care they need and deserve.
         </p>
       </section>
 
@@ -38,7 +38,7 @@ const About = () => {
       <section className="mb-6">
         <h2 className="text-2xl font-semibold text-blue-500">💻 Technology Behind NeuroCure</h2>
         <p className="mt-2 text-lg leading-relaxed">
-          We're leveraging cutting-edge technology in machine learning and image processing. NeuroCure utilizes powerful models like ResNet50V2 and custom architectures, meticulously trained on thousands of medical images to ensure top-notch accuracy and reliability.
+          We&apos;re leveraging cutting-edge technology in machine learning and image processing. NeuroCure utilizes powerful models like ResNet50V2 and custom architectures, meticulously trained on thousands of medical images to ensure top-notch accuracy and reliability.
         </p>
       </section>
 
@@ -46,7 +46,7 @@ const About = () => {
         <h2 className="text-3xl font-semibold">Meet the Team</h2>
         <h3 className="text-xl font-semibold">Parag Ghatage - Full Stack Developer & AI Enthusiast</h3>
         <p className="mt-2">
-          Hello! I’m Parag, a passionate full-stack developer with a deep-seated interest in harnessing the power of artificial intelligence to revolutionize healthcare. NeuroCure marks my inaugural venture into the world of deep learning, blending my web development skills with cutting-edge technology to tackle the complexities of brain tumor detection. I am driven by a mission to create impactful solutions that not only enhance diagnostic accuracy but also make a meaningful difference in patients' lives. Join me on this exciting journey as we explore the limitless possibilities of AI in medicine!
+          Hello! I’m Parag, a passionate full-stack developer with a deep-seated interest in harnessing the power of artificial intelligence to revolutionize healthcare. NeuroCure marks my inaugural venture into the world of deep learning, blending my web development skills with cutting-edge technology to tackle the complexities of brain tumor detection. I am driven by a mission to create impactful solutions that not only enhance diagnostic accuracy but also make a meaningful difference in patients&apos; lives. Join me on this exciting journey as we explore the limitless possibilities of AI in medicine!
         </p>
         
       </section>
@@ -54,7 +54,7 @@ const About = () => {
       <section>
         <h2 className="text-2xl font-semibold text-blue-500">🚀 Join Us on Our Journey</h2>
         <p className="mt-2 text-lg leading-relaxed">
-          We're constantly pushing boundaries at NeuroCure, and we value your input! Whether you're a researcher, medical professional, or tech enthusiast, we invite your feedback, suggestions, and collaborations. Together, we can make a significant impact in healthcare!
+          We&apos;re constantly pushing boundaries at NeuroCure, and we value your input! Whether you&apos;re a researcher, medical professional, or tech enthusiast, we invite your feedback, suggestions, and collaborations. Together, we can make a significant impact in healthcare!
         </p>
       </section>
 

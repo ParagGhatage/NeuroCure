@@ -5,6 +5,7 @@ import APIRequest from './APIRequest';
 const ImageUploader = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const isClient = typeof window !== 'undefined';
   // Sample images (update paths accordingly)
   const sampleImages = [
     "/gg (26).jpg",
@@ -51,7 +52,7 @@ const ImageUploader = () => {
             <div>Try it out!</div>
             <div className="sm:flex md:flex justify-center sm:p-3">
               {/* Render first four images for small screens and all images for larger screens */}
-              {(window.innerWidth < 640 ? sampleImages.slice(0, 4) : sampleImages).map((image, index) => (
+              {isClient &&(window.innerWidth < 640 ? sampleImages.slice(0, 4) : sampleImages).map((image, index) => (
                 <div
                   key={index}
                   className="border border-gray-300 rounded-full overflow-hidden shadow-md sm:w-12 sm:h-12 sm:flex items-center justify-center bg-gray-50 cursor-pointer sm:mr-3"

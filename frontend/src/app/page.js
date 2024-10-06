@@ -1,6 +1,4 @@
-
-// import Navbar from './components/Navbar';
-// import Footer from '../../components/Footer';
+"use client"
 import InferenceForm from './components/InferenceForm';
 
 const HomePage = () => {

@@ -1,4 +1,4 @@
-import  EmailTemplate  from '@/app/components/Email_template';
+import  EmailTemplate  from '../../../app/components/Email_template';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_EMAIL);
