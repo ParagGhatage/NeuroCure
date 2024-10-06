@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.10.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@radix-ui/react-label": "^2.1.0",
+    "@tabler/icons-react": "^3.19.0",
+    "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.1",
     "next": "14.2.14",
