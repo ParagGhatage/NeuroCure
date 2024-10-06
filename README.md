@@ -61,8 +61,8 @@ This project is organized into the following structure:
 | ├── package.json                     # Node.js dependencies
 | └── README.md                        # Project documentation
 ├── cloud/
-│ ├── Dockerfile
 │ └── gcp_deploy.sh
+├── Dockerfile
 ├── app.py
 ├── requirements.txt
 ├── package.json

@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "functions": {
+        "api/app.py": {
+            "runtime": "python3.12" 
+        }
+    },
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/app.py"
+        }
+    ]
+}

@@ -69,7 +69,7 @@ classification_model_2 = load_local_model(classification_model_2_path)
 
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict_image():
     """
     Single endpoint to handle both classification and segmentation inference.
@@ -114,7 +114,3 @@ def predict_image():
 
 
 
-
-# Main entry point
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8002)
