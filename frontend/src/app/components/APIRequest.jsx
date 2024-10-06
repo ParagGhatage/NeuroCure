@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Loader from './Loader';
 
 const APIRequest = ({ image }) => {
   const [response, setResponse] = useState(null);
@@ -107,10 +108,16 @@ const NoTumorMarkdown = `
     onClick={sendRequest}
     disabled={loading}
     className={`${
-      loading ? 'bg-gray-700  p-6 text-center border-2 text-white border-black ' : 'bg-red-400 text-black p-6 text-center border-black border-2 m-3 rounded-md'
-    } text-black py-2 px-6 bg-blue-300 rounded`}
+      loading ? 'bg-black px-8 rounded-xl w-24 h-24 text-center border-2 text-white border-black ' : 'bg-red-400 text-black p-2 text-center text-xl border-black border-2 m-3 rounded-md'
+    } `}
   >
-    {loading ? 'Processing...' : 'send for analysis'}
+    {loading ? (
+      <div className=''>
+        <Loader/>
+      </div>
+    ):("Send for Analysis"
+
+    )}
   </button>
 
   {/* Display final class if available */}
