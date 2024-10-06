@@ -23,6 +23,23 @@ const APIRequest = ({ image }) => {
 
       // Log the parsed data to see its structure
       console.log('Data:', data);
+      switch (data.final_class) {
+        case 0: data.final_class="No Tumor"
+          
+          break;
+        case 1: data.final_class="Glioma Tumor"
+          
+          break;
+        case 2: data.final_class="Meningioma Tumor"
+          
+          break;
+        case 3: data.final_class="Pituitary Tumor"
+          
+          break;
+      
+        default: data.final_class="Enable to predict."
+          break;
+      }
 
       if (res.ok) {
         setResponse(data); // Store the whole response
@@ -50,8 +67,9 @@ const APIRequest = ({ image }) => {
 
   {/* Display final class if available */}
   {response && response.final_class !== undefined && (
+    
     <p className="mt-4 text-3xl font-semibold text-black">
-      Tumor Type: {response.final_class}
+      Dignosis: {response.final_class}
     </p>
   )}
 

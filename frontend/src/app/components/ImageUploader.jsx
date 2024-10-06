@@ -9,13 +9,17 @@ const ImageUploader = () => {
   const sampleImages = [
     "/gg (26).jpg",
     "/image (11).jpg",
+    "/p (28).jpg",
     "/gg (498).jpg",
     "/m (7).jpg",
+    "/p (131).jpg",
     "/gg (544).jpg",
+    "/p (210).jpg",
     "/gg (37).jpg",
     "/p (199).jpg",
     "/image (46).jpg",
     "/gg (340).jpg",
+    "/p (374).jpg",
     "/image(200).jpg",
 
 
