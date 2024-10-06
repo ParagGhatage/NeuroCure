@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
         "api/app.py": {
-            "runtime": "python3.12" 
+            "runtime": "python" 
         }
     },
     "routes": [
