@@ -17,7 +17,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app,origins=["http://localhost:3000"])
+CORS(app,origins=["https://neuro-cure-frontend.vercel.app/"])
 
 
 # Define model paths relative to the root directory
@@ -69,7 +69,7 @@ classification_model_2 = load_local_model(classification_model_2_path)
 
 
 
-@app.route('/api/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict_image():
     """
     Single endpoint to handle both classification and segmentation inference.
@@ -115,4 +115,5 @@ def predict_image():
 
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

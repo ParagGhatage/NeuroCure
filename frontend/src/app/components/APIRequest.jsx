@@ -52,7 +52,7 @@ const NoTumorMarkdown = `
 
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/predict', {
+      const res = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
         body: formData,
       });
