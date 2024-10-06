@@ -1,25 +1,25 @@
-# Stage 1: Python backend setup
+# Start with the base image
 FROM python:3.9-slim
 
-# Set the working directory for the backend
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Create a working directory
 WORKDIR /app
 
-# Copy only the backend-related files
-COPY ./src ./src
-COPY ./models ./models
-COPY ./data ./data
-COPY ./app.py ./app.py
-COPY ./requirements.txt ./requirements.txt
+# Copy requirements file to the container
+COPY requirements.txt /app/
 
-# Install Python dependencies
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose port for Flask app (default 5000)
+# Copy the entire project to the working directory
+COPY . /app/
+
+# Expose the port on which the app will run
 EXPOSE 5000
 
-# Set environment variables (optional)
-ENV FLASK_ENV=production
-
-# Command to start the Flask app
-CMD ["python", "app.py"]
+# Run Gunicorn as the production WSGI server
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

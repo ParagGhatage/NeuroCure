@@ -17,7 +17,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app,origins=["https://neuro-cure-frontend.vercel.app/"])
+CORS(app,origins=["https://neuro-cure-frontend.vercel.app"])
 
 
 # Define model paths relative to the root directory

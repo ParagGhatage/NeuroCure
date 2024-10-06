@@ -7,4 +7,4 @@ scikit-image
 tensorflow
 tensorflow_intel
 google-cloud-storage
-
+gunicorn
