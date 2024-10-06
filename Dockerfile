@@ -4,7 +4,7 @@ FROM python:3.9-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-
+ENV GOOGLE_APPLICATION_CREDENTIALS="/app/secrets/neurocure-f243dc32c9cb.json"  
 # Create a working directory
 WORKDIR /app
 
