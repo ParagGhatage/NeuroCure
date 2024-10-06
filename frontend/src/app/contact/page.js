@@ -91,7 +91,7 @@ const onEmail = async (e) => {
           className="placeholder:text-black bg-indigo-100"/>
         </LabelInputContainer>
 
-        <LabelInputContainer className="h-56">
+        <LabelInputContainer className="h-56 text-black">
             <Label htmlFor="message">Message</Label>
             <textarea id="message" placeholder="Your message..." 
             value={user.message}
