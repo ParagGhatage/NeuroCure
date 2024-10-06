@@ -1,11 +1,51 @@
 "use client"
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const APIRequest = ({ image }) => {
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [info, setInfo] = useState("Enable to get details.");
+  
 
   const sendRequest = async () => {
+
+    // TumorInfo.jsx
+const MeningiomaMarkdown = `
+## Tumor Type: Meningioma
+**Description**: Meningioma is a tumor that develops from the protective layers covering the brain and spinal cord. While most meningiomas are benign (non-cancerous), they can cause symptoms due to their location.
+
+**What Patients Should Do**: Consult a neurosurgeon for further evaluation and possible surgical intervention if symptomatic. Regular monitoring through MRI scans is often recommended to track any changes in size or symptoms.
+
+**Implications**: Potential headaches, vision problems, and neurological deficits if left untreated.
+`;
+
+const GlioblastomaMarkdown = `
+## Tumor Type: Glioblastoma
+**Description**: Glioblastoma is a highly aggressive and malignant brain tumor that originates from glial cells. It is cancerous and typically requires a multi-modal treatment approach, including surgery, radiation therapy, and chemotherapy.
+
+**What Patients Should Do**: Discuss treatment options with an oncologist to formulate a personalized care plan. The prognosis can vary, but early intervention is crucial to managing symptoms and improving quality of life.
+
+**Implications**: May include seizures, cognitive difficulties, and significant functional impairment.
+`;
+
+const PituitaryAdenomaMarkdown = `
+## Tumor Type: Pituitary Adenoma
+**Description**: Pituitary adenomas are usually benign tumors of the pituitary gland that can affect hormone production and lead to various health issues.
+
+**What Patients Should Do**: Seek an endocrinologist for evaluation and possible treatment, which may include medication or surgery. While most pituitary adenomas are not cancerous, they can cause significant symptoms depending on their size and the hormones involved.
+
+**Implications**: Vision changes, hormonal deficiencies, and headaches.
+`;
+
+const NoTumorMarkdown = `
+## No Tumor
+**Description**: No tumor detected. This result indicates that there are no abnormal growths identified in the imaging studies.
+
+**What Patients Should Do**: Maintain regular health check-ups and screenings as advised by their healthcare provider. Staying informed about any symptoms or changes in health is essential for early detection of potential issues.
+`;
+
+
     const formData = new FormData();
     formData.append('image', image); // Ensure the key matches the backend
 
@@ -24,16 +64,24 @@ const APIRequest = ({ image }) => {
       // Log the parsed data to see its structure
       console.log('Data:', data);
       switch (data.final_class) {
-        case 0: data.final_class="No Tumor"
+        case 0: {data.final_class="No Tumor"
+          setInfo(NoTumorMarkdown)
+        }
           
           break;
-        case 1: data.final_class="Glioma Tumor"
+        case 1: {data.final_class="Glioma Tumor"
+          setInfo(GlioblastomaMarkdown)
+        }
           
           break;
-        case 2: data.final_class="Meningioma Tumor"
+        case 2: {data.final_class="Meningioma Tumor"
+          setInfo(MeningiomaMarkdown)
+        }
           
           break;
-        case 3: data.final_class="Pituitary Tumor"
+        case 3: {data.final_class="Pituitary Tumor"
+          setInfo(PituitaryAdenomaMarkdown)
+        }
           
           break;
       
@@ -122,6 +170,13 @@ const APIRequest = ({ image }) => {
   {response && response.error && (
     <p className="mt-4 text-red-500 font-semibold">Error: {response.error}</p>
   )}
+  {
+    (response && response.final_class)?(
+      <div className="text-left markdown-content">
+        <ReactMarkdown>{info}</ReactMarkdown>
+      </div>
+    ):null 
+  }
 </div>
 
 

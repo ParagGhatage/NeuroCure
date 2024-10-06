@@ -4,6 +4,7 @@ import APIRequest from './APIRequest';
 
 const ImageUploader = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+   
 
   // Sample images (update paths accordingly)
   const sampleImages = [
@@ -84,7 +85,7 @@ const ImageUploader = () => {
               </div>
             </span>
           </label>
-
+            
           
         </div>
       </div>
