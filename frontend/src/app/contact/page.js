@@ -33,7 +33,7 @@ const onEmail = async (e) => {
   e.preventDefault()
       try {
 
-          const response = await axios.post("/api/send", user);
+          const response = await axios.post("/api/send_email", user);
           console.log( response.data);
 
           if(!(response.data)){
@@ -47,7 +47,7 @@ const onEmail = async (e) => {
           if((response.data)){
             toast({
               title: `Email sent!`,
-              description:"We have sent email to Explora team.",
+              description:"We have sent email to NeuroCure team.",
               status: "success",
               isClosable: true,
             })
@@ -83,7 +83,7 @@ const onEmail = async (e) => {
           </LabelInputContainer>
           
         </div>
-        <LabelInputContainer className="mb-4">
+        <LabelInputContainer className="mb-4 text-black">
           <Label htmlFor="email">Email Address</Label>
           <Input id="email" placeholder="Email id" type="email"
           value={user.email} 
