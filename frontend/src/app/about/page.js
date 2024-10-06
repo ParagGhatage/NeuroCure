@@ -46,7 +46,7 @@ const About = () => {
         <h2 className="text-3xl font-semibold">Meet the Team</h2>
         <h3 className="text-xl font-semibold">Parag Ghatage - Full Stack Developer & AI Enthusiast</h3>
         <p className="mt-2">
-          Hello! I’m Parag Ghatage, a passionate full-stack developer with a deep-seated interest in harnessing the power of artificial intelligence to revolutionize healthcare. NeuroCure marks my inaugural venture into the world of deep learning, blending my web development skills with cutting-edge technology to tackle the complexities of brain tumor detection. I am driven by a mission to create impactful solutions that not only enhance diagnostic accuracy but also make a meaningful difference in patients' lives. Join me on this exciting journey as we explore the limitless possibilities of AI in medicine!
+          Hello! I’m Parag, a passionate full-stack developer with a deep-seated interest in harnessing the power of artificial intelligence to revolutionize healthcare. NeuroCure marks my inaugural venture into the world of deep learning, blending my web development skills with cutting-edge technology to tackle the complexities of brain tumor detection. I am driven by a mission to create impactful solutions that not only enhance diagnostic accuracy but also make a meaningful difference in patients' lives. Join me on this exciting journey as we explore the limitless possibilities of AI in medicine!
         </p>
         
       </section>
