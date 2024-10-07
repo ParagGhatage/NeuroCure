@@ -13,11 +13,15 @@ from src.config import *
 import os
 from models.load_and_save_models import load_and_save_model
 from flask_cors import CORS
+import threading
+import time
 
 app = Flask(__name__)
 
 # Enable CORS for all routes
 CORS(app,origins=["https://neuro-cure-frontend.vercel.app"])
+
+
 
 
 # Define model paths relative to the root directory
@@ -26,10 +30,12 @@ classification_model_2_path = CUSTOM_MODEL_PATH
 meta_model_path = META_MODEL_PATH
 segmentation_model_path = SEGMENTATION_MODEL_PATH
 
+
 # Global variables for models
 classification_model_1 = None
 classification_model_2 = None
-
+meta_model = None
+segmentation_model = None
 
 def load_and_save_models():
     """
@@ -62,11 +68,40 @@ def load_and_save_models():
         print(f'Model {model_name} loaded and saved successfully.')
 
 
-load_and_save_models()
-    # Load models globally
-classification_model_1 = load_local_model(classification_model_1_path)
-classification_model_2 = load_local_model(classification_model_2_path)
 
+def load_models():
+    global classification_model_1, classification_model_2, meta_model, segmentation_model
+    classification_model_1 = load_local_model(classification_model_1_path)
+    classification_model_2 = load_local_model(classification_model_2_path)
+    # meta_model = load_local_model(meta_model_path)
+    segmentation_model = load_local_model(segmentation_model_path)
+
+# @app.before_first_request
+# def perform():
+    
+#     load_and_save_models()
+#     load_models()
+
+# def only_once():
+#     inference_segmentation_with_overlay(image_np, segmentation_model_path)
+
+def keep_alive():
+    while True:
+        
+        print("Keep-alive task running...")  # Placeholder for your actual task
+        time.sleep(60)  # Wait for 60 seconds before repeating
+
+appHasRunBefore:bool = True
+@app.before_request
+def firstRun():
+    global appHasRunBefore
+    if appHasRunBefore:
+        load_and_save_models()
+        load_models()
+        
+        # Set the bool to True so this method isn't called again
+        appHasRunBefore = False
+    
 
 
 @app.route('/predict', methods=['POST'])
@@ -97,8 +132,8 @@ def predict_image():
     # Check if the final class prediction is other than 0
     if final_class[0] != 0:
         # Perform segmentation and get the overlayed image
-        overlayed_image = inference_segmentation_with_overlay(image_np, segmentation_model_path)
-
+        # overlayed_image = inference_segmentation_with_overlay(image_np, segmentation_model_path)
+        overlayed_image=inference_segmentation_with_overlay(image_np, segmentation_model)
         # Convert the overlayed image to a BytesIO object
         img_io = BytesIO()
         overlayed_image.save(img_io, format='JPEG')  # Save directly since overlayed_image is a PIL Image

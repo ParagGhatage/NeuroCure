@@ -1,4 +1,4 @@
-Flask
+Flask==3.0.3
 Flask_Cors
 numpy
 Pillow

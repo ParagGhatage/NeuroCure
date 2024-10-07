@@ -43,7 +43,7 @@ def overlay_mask_on_image(image, predicted_mask, alpha=0.5):
 
     return img_byte_arr
 
-def inference_segmentation_with_overlay(image, model_path):
+def inference_segmentation_with_overlay(image, seg_model):
     """
     Perform inference for segmentation model and overlay the predicted mask on the original image.
 
@@ -55,13 +55,14 @@ def inference_segmentation_with_overlay(image, model_path):
         Image: The final image with the overlayed predicted mask.
     """
     # Load the segmentation model
-    model = load_local_model(model_path, custom_loss=True)
+    # global seg_model
+    # seg_model = load_local_model(model_path, custom_loss=True)
 
     # Preprocess the image for segmentation
     preprocessed_image = preprocess_segmentation(image)
 
     # Make predictions
-    prediction = model.predict(preprocessed_image)  # Ensure this returns the expected shape
+    prediction = seg_model.predict(preprocessed_image)  # Ensure this returns the expected shape
 
     # Post-process the predictions (optional, e.g., thresholding)
     predicted_mask = (prediction[0] > 0.5).astype(np.uint8)  # Apply a threshold to convert to binary mask
