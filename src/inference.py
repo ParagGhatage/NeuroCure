@@ -108,9 +108,9 @@ def inference_classification(image, model_paths):
     print(f'Classification inference completed. Combined predictions shape: {combined_preds.shape}')
     return combined_preds
 
-def meta_pred(combined_preds, model_path):
+def meta_pred(combined_preds, meta_model):
     # Load the meta-model
-    meta_model = load_local_model(model_path)
+    # meta_model = load_local_model(model)
     
     # Get predictions from the meta-model
     final_pred_probs = meta_model.predict(combined_preds)

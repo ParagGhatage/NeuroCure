@@ -73,7 +73,7 @@ def load_models():
     global classification_model_1, classification_model_2, meta_model, segmentation_model
     classification_model_1 = load_local_model(classification_model_1_path)
     classification_model_2 = load_local_model(classification_model_2_path)
-    # meta_model = load_local_model(meta_model_path)
+    meta_model = load_local_model(meta_model_path)
     segmentation_model = load_local_model(segmentation_model_path)
 
 # @app.before_first_request
@@ -125,7 +125,7 @@ def predict_image():
 
     # Combine predictions and make a final prediction with the meta-model
     combined_preds = np.column_stack((resnet_preds, custom_preds))
-    final_class = meta_pred(combined_preds, meta_model_path)
+    final_class = meta_pred(combined_preds, meta_model)
 
     response = {"final_class": int(final_class[0])}
 

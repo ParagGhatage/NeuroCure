@@ -32,7 +32,7 @@ gcloud run deploy $SERVICE_NAME \
   --platform managed \
   --allow-unauthenticated \
   --port $PORT \
-  --memory 512Mi \ # Adjust memory as needed
-  --cpu 1          # Adjust CPU as needed
+  --memory 1.5Gi \ # Memory set to 1.5 GB
+  --cpu 0.7          # CPU set to 0.7 vCPU
 
 echo "Deployment completed!"
