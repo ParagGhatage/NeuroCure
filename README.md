@@ -1,8 +1,22 @@
-# NeuroCure1
+<h1 align="center"> NeuroCure </h1>
 
-# Project Structure
+![NeuroCure Logo](https://github.com/ParagGhatage/NeuroCure/blob/main/frontend/public/pexels-googledeepmind-17483868.jpg) 
+
+## Overview
+
+**NeuroCure1** is an innovative brain tumor detection and classification project that utilizes advanced deep learning techniques for medical image analysis. By leveraging TensorFlow and custom models, NeuroCure aims to provide accurate and efficient identification of brain tumors from MRI scans, assisting healthcare professionals in diagnosis and treatment.
+
+### Key Features
+
+- **Multi-Model Ensemble**: Combines multiple models for improved accuracy in detection and classification.
+- **Segmentation**: Efficiently segments tumors from MRI images for better analysis and visualization.
+- **User-Friendly Interface**: Built with Next.js and Tailwind CSS for a seamless user experience in uploading images and receiving predictions.
+- **Deployment Ready**: Easily deployable on Google Cloud, ensuring scalability and accessibility.
+
+## Project Structure
 
 This project is organized into the following structure:
+
 
 ```
 
@@ -69,3 +83,31 @@ This project is organized into the following structure:
 └── README.md
 
 ```
+
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Python**: Version 3.x installed on your machine.
+- **Node.js**: Make sure you have Node.js installed.
+- **TensorFlow**: Install TensorFlow to run the machine learning models.
+- **Next.js**: Used for building the frontend of the application.
+- **Docker**: Optional, but recommended for containerization.
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ParagGhatage/NeuroCure1.git
+   cd NeuroCure1
+   pip install -r requirements.txt
+   cd frontend
+   npm install
+   python app.py
+   cd frontend
+   npm run dev
+   
+
