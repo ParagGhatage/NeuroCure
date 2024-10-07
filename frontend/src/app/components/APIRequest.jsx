@@ -52,7 +52,7 @@ const NoTumorMarkdown = `
 
     setLoading(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/predict', {
+      const res = await fetch('https://neuro-cure-backend-service-563601529608.us-central1.run.app/predict', {
         method: 'POST',
         body: formData,
       });
