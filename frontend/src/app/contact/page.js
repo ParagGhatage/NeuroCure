@@ -44,10 +44,10 @@ const onEmail = async (e) => {
               isClosable: true,
             })
           }
-          if((response.data)){
+          if((response)){
             toast({
               title: `Email sent!`,
-              description:"We have sent email to NeuroCure team.",
+              description:"We have sent an email to NeuroCure team.",
               status: "success",
               isClosable: true,
             })
