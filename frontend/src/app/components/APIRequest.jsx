@@ -64,6 +64,13 @@ const NoTumorMarkdown = `
 
       // Log the parsed data to see its structure
       console.log('Data:', data);
+      if(data){
+        toast({
+          title: `Dignosis is ready!`,
+          status: "success",
+          isClosable: true,
+        })
+      }
       switch (data.final_class) {
         case 0: {data.final_class="No Tumor"
           setInfo(NoTumorMarkdown)
