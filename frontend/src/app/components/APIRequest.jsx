@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Loader from './Loader';
+import { useToast } from '@chakra-ui/react';
 
 const APIRequest = ({ image }) => {
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [info, setInfo] = useState("Enable to get details.");
-  
+  const toast = useToast()
 
   const sendRequest = async () => {
 
