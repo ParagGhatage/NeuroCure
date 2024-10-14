@@ -19,7 +19,7 @@ import time
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app,origins=["https://neuro-cure-frontend.vercel.app"])
+CORS(app)
 
 
 
@@ -37,7 +37,7 @@ classification_model_2 = None
 meta_model = None
 segmentation_model = None
 
-def load_and_save_models():
+def from_google():
     """
     Load and save models at the startup of the application.
     """
@@ -96,7 +96,7 @@ appHasRunBefore:bool = True
 def firstRun():
     global appHasRunBefore
     if appHasRunBefore:
-        load_and_save_models()
+        from_google()
         load_models()
         
         # Set the bool to True so this method isn't called again
