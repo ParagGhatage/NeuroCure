@@ -16,7 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Copy the entire project to the working directory
-COPY . /app/
+COPY . .
 
 # Expose the port on which the app will run
 EXPOSE 5000
