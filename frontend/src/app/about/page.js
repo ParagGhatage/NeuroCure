@@ -2,68 +2,91 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="max-w-4xl mx-auto p-5 mt-20 text-black">
-      <h1 className="text-4xl font-bold mb-4 mt-12 text-center text-blue-600">About NeuroCure</h1>
+    <div className="bg-gray-50 text-black py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <h1 className="text-4xl font-extrabold text-center text-indigo-600 mb-12">About NeuroCure</h1>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-blue-500">🌟 Welcome to NeuroCure</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          At NeuroCure, we&apos;re on a mission to transform the way brain tumors are detected and classified using the power of advanced machine learning! Our platform is designed to empower patients and healthcare professionals with rapid, accurate analyses to ensure timely interventions.
-        </p>
-      </section>
+        {/* Welcome Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold text-indigo-500">🌟 Welcome to NeuroCure</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            At NeuroCure, we’re on a mission to revolutionize brain tumor detection using the power of advanced machine learning.
+            Our platform is designed to provide rapid, accurate analyses that empower patients and healthcare professionals with timely insights.
+          </p>
+        </section>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-blue-500">🎯 Our Mission</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          We strive to make brain tumor diagnosis faster, more accurate, and universally accessible. By harnessing AI, we aim to revolutionize brain imaging interpretation, ultimately improving outcomes for patients and healthcare providers alike!
-        </p>
-      </section>
+        {/* Mission Section */}
+        <section className="mb-12 bg-indigo-100 p-6 rounded-lg">
+          <h2 className="text-3xl font-semibold text-indigo-600">🎯 Our Mission</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            We aim to make brain tumor diagnosis faster, more accurate, and universally accessible. By harnessing the power of AI,
+            we are transforming brain imaging interpretation to improve patient outcomes and assist healthcare providers in delivering the best care.
+          </p>
+        </section>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-blue-500">🔮 Our Vision</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          Imagine a future where AI-driven solutions seamlessly integrate into healthcare systems, providing critical insights and support to medical professionals. At NeuroCure, we&apos;re dedicated to making this vision a reality, helping to combat cancer and provide patients with the care they need and deserve.
-        </p>
-      </section>
+        {/* Vision Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold text-indigo-600">🔮 Our Vision</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            We envision a future where AI seamlessly integrates into healthcare systems, providing essential insights to support medical professionals. NeuroCure is dedicated to making this future a reality, helping fight cancer and provide patients with the best care possible.
+          </p>
+        </section>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-blue-500">🛠️ How It Works</h2>
-        <ol className="mt-2 list-decimal list-inside text-lg leading-relaxed">
-          <li className="mb-2">📥 <strong>Data Input:</strong> Users can easily upload their MRI scans through our intuitive interface.</li>
-          <li className="mb-2">⚙️ <strong>Model Processing:</strong> Our advanced models analyze the images in real time to detect and classify tumors.</li>
-          <li className="mb-2">📊 <strong>Results Presentation:</strong> Users receive detailed reports with visualizations of segmentation results and tumor classifications.</li>
-        </ol>
-      </section>
+        {/* How It Works Section */}
+        <section className="mb-12 bg-indigo-50 p-6 rounded-lg">
+          <h2 className="text-3xl font-semibold text-indigo-600">🛠️ How It Works</h2>
+          <ol className="mt-4 list-decimal list-inside text-lg leading-relaxed">
+            <li className="mb-4">
+              📥 <strong>Data Input:</strong> Users can easily upload their MRI scans through our intuitive, user-friendly interface.
+            </li>
+            <li className="mb-4">
+              ⚙️ <strong>Model Processing:</strong> Our advanced machine learning models analyze the scans in real-time, detecting and classifying brain tumors with high accuracy.
+            </li>
+            <li className="mb-4">
+              📊 <strong>Results Presentation:</strong> Detailed reports with visualizations of segmentation results and tumor classifications are provided to users.
+            </li>
+          </ol>
+        </section>
 
-      <section className="mb-6">
-        <h2 className="text-2xl font-semibold text-blue-500">💻 Technology Behind NeuroCure</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          We&apos;re leveraging cutting-edge technology in machine learning and image processing. NeuroCure utilizes powerful models like ResNet50V2 and custom architectures, meticulously trained on thousands of medical images to ensure top-notch accuracy and reliability.
-        </p>
-      </section>
+        {/* Technology Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold text-indigo-600">💻 Technology Behind NeuroCure</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            NeuroCure leverages cutting-edge machine learning and image processing technologies, including models like ResNet50V2 and custom architectures.
+            Our models are trained on thousands of medical images, ensuring high reliability and precision in brain tumor detection.
+          </p>
+        </section>
 
-      <section className="mb-6">
-        <h2 className="text-3xl font-semibold">Meet the Team</h2>
-        <h3 className="text-xl font-semibold">Parag Ghatage - Full Stack Developer & AI Enthusiast</h3>
-        <p className="mt-2">
-          Hello! I’m Parag, a passionate full-stack developer with a deep-seated interest in harnessing the power of artificial intelligence to revolutionize healthcare. NeuroCure marks my inaugural venture into the world of deep learning, blending my web development skills with cutting-edge technology to tackle the complexities of brain tumor detection. I am driven by a mission to create impactful solutions that not only enhance diagnostic accuracy but also make a meaningful difference in patients&apos; lives. Join me on this exciting journey as we explore the limitless possibilities of AI in medicine!
-        </p>
-        
-      </section>
+        {/* Meet the Team Section */}
+        <section className="mb-12 bg-indigo-100 p-6 rounded-lg">
+          <h2 className="text-3xl font-semibold text-indigo-600">Meet the Team</h2>
+          <div className="mt-6">
+            <h3 className="text-2xl font-semibold text-indigo-500">Parag Ghatage - Full Stack Developer & AI Enthusiast</h3>
+            <p className="mt-4 text-lg leading-relaxed">
+              Hello! I’m Parag, a full-stack developer passionate about using artificial intelligence to make a difference in healthcare.
+              NeuroCure represents my first deep dive into AI, where I’m blending my web development experience with deep learning to enhance the accuracy of brain tumor detection.
+              I’m excited to work on impactful AI solutions that improve diagnosis and bring positive change to patients’ lives. Join me in exploring the future of AI in medicine!
+            </p>
+          </div>
+        </section>
 
-      <section>
-        <h2 className="text-2xl font-semibold text-blue-500">🚀 Join Us on Our Journey</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          We&apos;re constantly pushing boundaries at NeuroCure, and we value your input! Whether you&apos;re a researcher, medical professional, or tech enthusiast, we invite your feedback, suggestions, and collaborations. Together, we can make a significant impact in healthcare!
-        </p>
-      </section>
+        {/* Join Us Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold text-indigo-600">🚀 Join Us on Our Journey</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            At NeuroCure, we’re constantly pushing the limits of what’s possible. We invite researchers, medical professionals, and tech enthusiasts to collaborate with us.
+            Together, we can make a meaningful impact on healthcare through innovation.
+          </p>
+        </section>
 
-      <section className="mt-6">
-        <h2 className="text-2xl font-semibold text-blue-500">📬 Contact Us</h2>
-        <p className="mt-2 text-lg leading-relaxed">
-          Have questions or interested in collaborating? Don’t hesitate to reach out through our Contact page. We’d love to hear from you!
-        </p>
-      </section>
+        {/* Contact Us Section */}
+        <section className="mb-12 bg-indigo-50 p-6 rounded-lg">
+          <h2 className="text-3xl font-semibold text-indigo-600">📬 Contact Us</h2>
+          <p className="mt-4 text-lg leading-relaxed">
+            Have any questions, or want to collaborate? Don’t hesitate to reach out through our Contact page. We would love to hear from you!
+          </p>
+        </section>
+      </div>
     </div>
   );
 };
