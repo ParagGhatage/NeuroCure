@@ -116,7 +116,7 @@ const NoTumorMarkdown = `
     onClick={sendRequest}
     disabled={loading}
     className={`${
-      loading ? 'bg-black sm:px-8 rounded-xl sm:w-24 sm:h-24 text-center border-2 text-white border-black ' : 'bg-red-400 text-black sm:p-2 text-center sm:text-xl border-black border-2 sm:m-3 rounded-md'
+      loading ? 'bg-black sm:px-8 rounded-xl sm:w-24 sm:h-24 text-center border-2 text-white border-black ' : 'bg-fuchsia-300 text-black sm:p-2 text-center sm:text-xl border-black border-2 sm:m-3 rounded-md'
     } `}
   >
     {loading ? (
