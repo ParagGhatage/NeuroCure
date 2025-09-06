@@ -201,7 +201,7 @@ const onEmail = async (e) => {
 </div>
 </Link>
 
-<Link href="https://www.linkedin.com/in/parag-ghatage-09685a314/">
+<Link href="https://www.linkedin.com/in/paragg1/">
 <div
   className=" border border-black relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
 > 
